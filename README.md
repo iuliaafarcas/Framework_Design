@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+# Getting Started with React Hooks POC
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application illustrates the use of React Hooks. On the left-hand side of the page, a list of Hooks is displayed. On the right side, the information about the chosen hook is displayed containing:
 
-## Available Scripts
+- title
+- description
+- example
+- reference
+- usage
+- troubleshooting
 
-In the project directory, you can run:
+## 1. Prerequisites
 
-### `npm start`
+* Install npm globally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 2. Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Clone this repository https://github.com/iuliaafarcas/Framework_Design 
 
-### `npm test`
+Open a terminal and run `npm install` 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+During the process of creating this app, the following were also installed:
 
-### `npm run build`
+- React-router-dom: `npm install react-router-dom`
+- React Icons: `npm install react-icons`
+- Material UI: `npm install @mui/material`
+- React Emotion: `npm install @emotion/react @emotion/styled`
+  
+## 3. Running the application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application can be started using the `npm start` command in the Terminal. The application will run on http://localhost:3000/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 4. Theoretical Part
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Introduction to React Hooks
+React Hooks were introduced in React 16.8 to allow the use of state and other React features without writing a class. Hooks simplify the logic of React components, making code more readable and maintainable.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Core Concepts
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### useState Hook:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* The useState hook is used to add state to a functional component. It returns an array containing the current state and a function to update it.
+* ```
+  const [hookData, setHookData] = useState<HookInterface>(emptyHook);
+  ```
+*  In this example, hookData is the state variable, and setHookData is the function to update it.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### useEffect Hook:
 
-## Learn More
+* The useEffect hook allows you to perform side effects in function components. It is the equivalent of componentDidMount, componentDidUpdate, and componentWillUnmount lifecycle methods in class components.
+* ```
+  useEffect(() => {
+    const parsedId = parseInt(id || "", 10);
+    if (!isNaN(parsedId)) {
+      setHookData(populatedHooks[parsedId - 1]);
+    }
+    console.log(id);
+  }, [id]);
+  ```
+* The second argument to useEffect is an array of dependencies. The effect will only run if one of the dependencies has changed.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### useContext Hook:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* The useContext hook lets you subscribe to React context without introducing nesting.
+* ```
+  const value = useContext(MyContext);
+  ```
+* Here, MyContext is a context object created using React.createContext
+
+#### useParams Hook:
+
+* The useParams hook from react-router-dom is used to access the URL parameters of the current route. It returns an object of key/value pairs, where the key is the parameter name, and the value is the parameter value.
+* ```
+  const { id } = useParams();  
+  ```
+* In this example, if the current URL is /hooks/1, id will be 1.
+
+
+
