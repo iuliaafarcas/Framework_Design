@@ -1,10 +1,11 @@
 import React from "react";
-import Navbar from "../../components/bar/Navbar";
-import TypeNavbar from "../../components/bar/TypeNavbar";
+import Navbar from "../components/bar/Navbar";
 import { Box, Grid } from "@mui/material";
-import { HookContextProvider } from "../../components/context/HookContext";
-import HooksFilter from "../../components/recommendations/filters/HooksFilter";
-import MainPagePhoto from "../../assets/MainPagePhoto.jpg";
+import { HookContextProvider } from "../components/context/HookContext";
+import MainPagePhoto from "../assets/MainPagePhoto.jpg";
+import HooksFilter from "../components/hooks/HooksFilter";
+import TypeNavbar from "../components/bar/TypeNavbar";
+
 const MainPage = () => {
   return (
     <HookContextProvider>
